@@ -10,7 +10,6 @@ export function generateMetadata({ params }: { params: { name: string } }) {
 }
 
 const Category = ({ params }: { params: { name: string } }) => {
-  console.log(params);
   return (
     <div>
       <Suspense fallback={<ProductsPlaceholder />}>

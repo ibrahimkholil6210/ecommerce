@@ -2,12 +2,12 @@ import React, { Suspense } from "react";
 import LogoSquare from "./Logo";
 import Link from "next/link";
 import Search from "./Search";
-import clsx from "clsx";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import OpenCart from "./OpenCart";
 import Cart from "./Cart";
+import Profile from "./Profile";
 
-const Navbar = () => {
+const Navbar = async () => {
+
   return (
     <div className="relative flex items-center justify-between py-4 sm:py-6 container mx-auto">
       <div className="flex items-center md:w-1/3">
@@ -52,7 +52,10 @@ const Navbar = () => {
       <div className="hidden justify-center md:flex md:w-1/3">
         <Search />
       </div>
-      <div className="flex justify-end md:w-1/3">
+      <div className="flex justify-end md:w-1/3 items-center gap-4">
+        <Suspense>
+          <Profile />
+        </Suspense>
         <Suspense fallback={<OpenCart />}>
           <Cart />
         </Suspense>
